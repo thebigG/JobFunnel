@@ -76,27 +76,23 @@ __*Note*__: `rejected` jobs will be filtered out and will disappear from the out
   ```
   column -s, -t < master_list.csv | less -#2 -N -S
   ```
-* **Saving Duplicates** <br/> 
-  You can save removed duplicates in a separate file, which is stored in the same place as your master list: <br>
+* **Saving Duplicates** <br />
+  You can save removed duplicates in a separate file, which is stored in the same place as your master list: <br />
   ```
   funnel --save_dup
   ```
-* **Respectful Delaying** <br/>
+* **Respectful Delaying** <br />
   Respectfully scrape your job posts with our built-in delaying algorithm, which can be configured using a config file (see `JobFunnel/jobfunnel/config/settings.yaml`) or with command line arguments:
-  - `-d` lets you set your max delay value: ``funnel -s demo/settings.yaml -kw AI -d 15`
-  - `-r` lets you specify if you want to use random delaying, and uses `-d` to control the range of randoms we pull from: <br>
-  `funnel -s demo/settings.yaml -kw AI -r`
-  - `-c` specifies converging random delay, which is an alternative mode of random delay. Random delay needed to be turned on as well for it to work. Proper usage would look something like this: <br>
-  `funnel -s demo/settings.yaml -kw AI -r -c` 
-  - `-md` lets you set a minimum delay value: <br> 
-  `funnel -s demo/settings.yaml -d 15 -md 5` 
-  - `--fun` can be used to set which mathematical function (`constant`,  `linear`, or `sigmoid`) is used to calculate delay: <br> `funnel -s demo/settings.yaml --fun sigmoid` 
+  - `-d` lets you set your max delay value: `funnel -s demo/settings.yaml -kw AI -d 15`
+  - `-r` lets you specify if you want to use random delaying, and uses `-d` to control the range of randoms we pull from: <br /> `funnel -s demo/settings.yaml -kw AI -r`
+  - `-c` specifies converging random delay, which is an alternative mode of random delay. Random delay needed to be turned on as well for it to work. Proper usage would look something like this: <br /> `funnel -s demo/settings.yaml -kw AI -r -c`
+  - `-md` lets you set a minimum delay value: <br /> `funnel -s demo/settings.yaml -d 15 -md 5`
+  - `--fun` can be used to set which mathematical function (`constant`,  `linear`, or `sigmoid`) is used to calculate delay: <br /> `funnel -s demo/settings.yaml --fun sigmoid`
   - `--no_delay` Turns off delaying, but it's usage is not recommended.
-  
-  To better understand how to configure delaying, check out [this Jupyter Notebook][delay_jp] breaking down the algorithm step by step with code and visualizations.
-  
-<!-- links -->
 
+  To better understand how to configure delaying, check out [this Jupyter Notebook][delay_jp] breaking down the algorithm step by step with code and visualizations.
+
+<!-- links -->
 [masterlist]:demo/assests/demo.png "masterlist.csv"
 [python]:https://www.python.org/
 [demo]:demo/readme.md
@@ -122,7 +118,7 @@ If you ran JobFunnel like this:
 Make sure you stay in the same directory and then all you have to do is this:
 
 	funnel easy_apply --ea_number 2
-	
+
 
 
 Two browser tabs should open up for your job applications.
@@ -131,7 +127,7 @@ These two jobs will be marked as "archive" in the csv master_list.
 However, if you passed your own output path like this:
 
 	funnel -o PATH
-	
+
 **Then make sure you cd into PATH BEFORE you run easy_apply.**
 
 	cd PATH
@@ -156,6 +152,3 @@ This job will be marked as "archive" in the csv master_list.
 You can ask for help on all options for easy_apply from the command line:
 
 	funnel easy_apply --h
-
-	
-
