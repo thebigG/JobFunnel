@@ -153,6 +153,9 @@ Or you could do no arguments:
 One browser tab should open up for your job application.
 This job will be marked as "archive" in the csv master_list.
 
+You can ask for help on all options for easy_apply from the command line:
+
+	funnel easy_apply --h
 
 	
 
