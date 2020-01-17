@@ -99,6 +99,7 @@ def easy_apply(output_file, input_file, status, number_of_times):
         output_csv = open(output_file, mode='a+')
         output_csv.close()
     output_csv = open(output_file, mode='r+')
+    output_csv.truncate()
     output_csv.seek(0)
     csvwriter = csv.writer(output_csv)
     count = 0

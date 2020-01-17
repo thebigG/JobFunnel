@@ -128,15 +128,15 @@ However, if you passed your own output path like this:
 
 	funnel -o PATH
 
-**Then make sure you cd into PATH BEFORE you run easy_apply.**
+**Then make sure you prefix the easy_apply command with this. To avoid confusion, I highly recommend passing the absolute path and NOT any relative path.**
 
-	cd PATH
+	funnel -o PATH easy_apply
 
 
 
 You can also set a specific status for the jobs you are applying for
 
-	funnel easy_apply --ea_number 2 --ea_status offer
+	funnel  -o PATH easy_apply --ea_number 2 --ea_status offer
 
 
 Two browser tabs should open up for your job applications.
@@ -144,7 +144,7 @@ These two jobs will be marked as "offer" in the csv master_list.
 
 Or you could do no arguments:
 
-	funnel easy_apply
+	funnel  -o PATH easy_apply
 
 One browser tab should open up for your job application.
 This job will be marked as "archive" in the csv master_list.
