@@ -99,6 +99,8 @@ def easy_apply(output_file, input_file, status, number_of_times):
         output_csv = open(output_file, mode='a+')
         output_csv.close()
     output_csv = open(output_file, mode='r+')
+    #avoid mixing old data with the new data from the master_list \
+    #This is to avoid re-using old data after a new scrape.
     output_csv.truncate()
     output_csv.seek(0)
     csvwriter = csv.writer(output_csv)
