@@ -117,7 +117,7 @@ If you ran JobFunnel like this:
 
 Make sure you stay in the same directory and then all you have to do is this:
 
-	funnel easy_apply --ea_number 2
+	funnel -s settings.yaml easy_apply --ea_number 2
 
 
 
@@ -126,17 +126,20 @@ These two jobs will be marked as "archive" in the csv master_list.
 
 However, if you passed your own output path like this:
 
-	funnel -o PATH
+	
+~~funnel -s settings.yaml -o PATH~~
 
-**Then make sure you prefix the easy_apply command with this. To avoid confusion, I highly recommend passing the absolute path and NOT any relative path.**
 
-	funnel -o PATH easy_apply
+I don't recommend passhing your own output PATH. It will make things confusing. It confused the heck out of me for sure. If you want  your own output path, create a new directory and copy your settings.yaml to that new directory. cd into that diretory and run funnel easy_apply there just like above.
+
+**Remeber that JobFunnel considers ALL paths relative to the settings.yaml file. So I recommend to ALWAYS pass the settings.yaml path.**
+
 
 
 
 You can also set a specific status for the jobs you are applying for
 
-	funnel  -o PATH easy_apply --ea_number 2 --ea_status offer
+	funnel  -s settings.yaml easy_apply --ea_number 2 --ea_status offer
 
 
 Two browser tabs should open up for your job applications.
@@ -144,7 +147,7 @@ These two jobs will be marked as "offer" in the csv master_list.
 
 Or you could do no arguments:
 
-	funnel  -o PATH easy_apply
+	funnel  -s settings.yaml easy_apply
 
 One browser tab should open up for your job application.
 This job will be marked as "archive" in the csv master_list.
