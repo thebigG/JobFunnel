@@ -69,7 +69,7 @@ def parse_cli():
                         dest='domain',
                         type=str,
                         required=False,
-                        help='domain value for a region ')   
+                        help='domain value for a region ')
 
     parser.add_argument('-r',
                         dest='random',
@@ -152,7 +152,7 @@ def parse_cli():
     #Parse the arguments for the easy_apply sub-command
     #Give the easy_apply sub-command a name
     subparsers = parser.add_subparsers(dest="easy_apply")
-    easy_apply_parser = subparsers.add_parser('easy_apply')
+    easy_apply_parser = subparsers.add_parser('easy_apply', help='apply to jobs directly from the command line')
     easy_apply_parser.add_argument("--ea_output","--output", help="The contents of the new csv are dumped onto this file. The default is 'updated_master_list.csv'",
                         default='updated_master_list.csv')
     easy_apply_parser.add_argument("--ea_status","--status", help="The new status the random jobs will be marked with. The default is 'archive'.",

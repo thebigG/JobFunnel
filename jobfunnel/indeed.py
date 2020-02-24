@@ -30,6 +30,7 @@ class Indeed(JobFunnel):
             'Cache-Control': 'no-cache',
             'Connection': 'keep-alive'
         }
+        print(f"indeed referer:{self.headers['referer']}")
         self.query = '+'.join(self.search_terms['keywords'])
 
     def convert_radius(self, radius):
@@ -127,7 +128,6 @@ class Indeed(JobFunnel):
 
         # get the search url
         search = self.get_search_url()
-
         # get the html data, initialize bs4 with lxml
         request_html = self.s.get(search, headers=self.headers)
 

@@ -12,21 +12,25 @@ providers:
 # filters
 search_terms:
   region:
-    province: 'ON'
-    city:     'waterloo'
-    domain:   'ca'
-    radius:   10
+    province: ''
+    city:     'New York'
+    domain:   'com'
+    radius:   300
 
   keywords:
-    - 'Python'
+    - 'c++'
+    - 'engineer'
 
 black_list:
   - 'Infox Consulting'
   - 'Terminal'
 
+
 # logging level options are: critical, error, warning, info, debug, notset
 log_level: 'info'
 
+# The oldest number of days a job can be. To disbable this option set value to -1
+threshold_days: 10
 # saves duplicates removed by tfidf filter to duplicate_list.csv
 save_duplicates: False
 

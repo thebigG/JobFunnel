@@ -105,7 +105,7 @@ def easy_apply(output_file, input_file, status, number_of_times):
     output_csv.seek(0)
     csvwriter = csv.writer(output_csv)
     count = 0
-    # Scan master_list csv and and write its contents to the output file,
+    # Scan master_list csv and write its contents to the output file,
     # marking the randomly selected rows with user-defined status.
     for row in masterlist_csvreader:
         if(count in row_nums):
