@@ -292,10 +292,6 @@ class GlassDoor(JobFunnel):
         # apply job pre-filter before scraping blurbs
         super().pre_filter(self.scrape_data, self.provider)
 
-
-
-
-
         # checks if delay is set or not, then extracts blurbs from job links
         if self.delay_config is not None:
             # calls super class to run delay specific threading logic

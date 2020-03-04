@@ -32,7 +32,9 @@ CONFIG_TYPES = {
             'ip_address': str,
             'port': str
         }
-    ]
+    ],
+    'max_listing_days':[int]
+
 }
 
 PROVIDERS = ['glassdoor', 'indeed', 'monster']
