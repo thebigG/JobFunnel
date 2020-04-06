@@ -25,15 +25,12 @@ CONFIG_TYPES = {
         'random': [bool],
         'converge': [bool]
     },
-    'proxy': [
-        None,
-        {
-            'protocol': str,
-            'ip_address': str,
-            'port': str
-        }
-    ],
-    'max_listing_days':[int]
+    'proxy': {
+        'protocol': [str],
+        'ip_address': [str],
+        'port': [str]
+    },
+    'max_listing_days': [int]
 
 }
 
