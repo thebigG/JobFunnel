@@ -111,7 +111,7 @@ Filter undesired companies by providing your own `yaml` configuration and adding
 
 The easy_apply extension nicely integrates with JobFunnel to make your job search even easier!
 
-It will open as many browser tabs as you tell it to with randomly selected job links. It also marks those same jobs with a custom status of your choosing(the default is "archive")
+It will open as many browser tabs as you tell it to with randomly or per date(oldest/newest) selected job links. It also marks those same jobs with a custom status of your choosing(the default is "archive")
 
 Once you have your scraped "master_list.csv" file, you can start using easy_apply.
 
@@ -135,7 +135,7 @@ However, if you passed your own output path like this:
 ~~funnel -s settings.yaml -o PATH~~
 
 
-I don't recommend passhing your own output PATH. It will make things confusing. It confused the heck out of me for sure. If you want  your own output path, create a new directory and copy your settings.yaml to that new directory. cd into that diretory and run funnel easy_apply there just like above.
+I don't recommend passhing your own output PATH. It will make things confusing. It confused the heck out of me for sure. If you want  your own output path, create a new directory and copy your `settings.yaml` to that new directory. cd into that diretory and run funnel easy_apply there just like above.
 
 **Remeber that JobFunnel considers ALL paths relative to the settings.yaml file. So I recommend to ALWAYS pass the settings.yaml path.**
 
@@ -156,6 +156,18 @@ Or you could do no arguments:
 
 One browser tab should open up for your job application.
 This job will be marked as "archive" in the csv master_list.
+
+You can also tell easy_apply whether you want the oldest or newest jobs from the master_list.
+
+	funnel -s settings.yaml easy_apply --ea_number 15 --ea_mode newest
+
+This will open 15 job posintgs(as tabs) on your browser that have the newest date(most recent) on their row.
+
+Of course you may also just apply to the oldest jobs as well
+
+	funnel -s settings.yaml easy_apply --ea_number 15 --ea_mode oldest 
+
+Likewise, the command above wil open 15 browser tabs with the oldest job postings from the master_list.
 
 You can ask for help on all options for easy_apply from the command line:
 

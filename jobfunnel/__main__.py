@@ -21,7 +21,8 @@ def main():
     config = parse_config()
     # Call easy_apply and update master_list if the sub-command was passed
     if config['easy_apply'] is not None:
-        config['easy_apply_func'](config['ea_output'],config['master_list_path'],config['ea_status'],config['ea_number'])
+        config['easy_apply_func'](config['ea_output'], config['master_list_path'],
+                                  config['ea_status'], config['ea_number'], config['ea_mode'])
         return
     try:
         config = parse_config()
@@ -29,7 +30,6 @@ def main():
     except ConfigError as e:
         print(e.strerror)
         sys.exit()
-
 
     # init class + logging
     jf = JobFunnel(config)

@@ -14,11 +14,14 @@ log_levels = {'critical': logging.CRITICAL, 'error': logging.ERROR,
               'warning': logging.WARNING, 'info': logging.INFO,
               'debug': logging.DEBUG, 'notset': logging.NOTSET}
 
+
 def _config_easy_apply_args(config, args):
     config['ea_output'] = args.ea_output
     config['ea_status'] = args.ea_status
     config['ea_number'] = args.ea_number
     config['easy_apply_func'] = args.func
+    config['ea_mode'] = args.ea_mode
+
 
 class ConfigError(ValueError):
     def __init__(self, arg):
@@ -156,16 +159,21 @@ def parse_cli():
                         help='The maximum number of days old a job can be.'
                         '(i.e pass 30 to filter out jobs older than a month)')
 
-    #Parse the arguments for the easy_apply sub-command
-    #Give the easy_apply sub-command a name
+    # Parse the arguments for the easy_apply sub-command
+    # Give the easy_apply sub-command a name
     subparsers = parser.add_subparsers(dest="easy_apply")
-    easy_apply_parser = subparsers.add_parser('easy_apply', help='apply to jobs directly from the command line')
-    easy_apply_parser.add_argument("--ea_output","--output", help="The contents of the new csv are dumped onto this file. The default is 'updated_master_list.csv'",
-                        default='updated_master_list.csv')
-    easy_apply_parser.add_argument("--ea_status","--status", help="The new status the random jobs will be marked with. The default is 'archive'.",
-                        default='archive')
-    easy_apply_parser.add_argument("--ea_number","--number_of_times", help="Number of jobs to apply to",default=1)
-    easy_apply_parser.set_defaults(func=easy_apply.easy_apply, which="easy_apply")
+    easy_apply_parser = subparsers.add_parser(
+        'easy_apply', help='apply to jobs directly from the command line')
+    easy_apply_parser.add_argument("--ea_output", "--output", help="The contents of the new csv are dumped onto this file. The default is 'updated_master_list.csv'",
+                                   default='updated_master_list.csv')
+    easy_apply_parser.add_argument("--ea_status", "--status", help="The new status the random jobs will be marked with. The default is 'archive'.",
+                                   default='archive')
+    easy_apply_parser.add_argument(
+        "--ea_number", "--number_of_times", help="Number of jobs to apply to", default=1)
+    easy_apply_parser.add_argument("--ea_mode", "--mode", help="The mode in which to run easy apply. 'oldest' will grab the oldest jobs from the master_list. 'newest' will grab the newest jobs from the master_list. 'random' will grab random jobs from the master_list. The default is 'random'.",
+                                   default='random')
+    easy_apply_parser.set_defaults(
+        func=easy_apply.easy_apply, which="easy_apply")
     return parser.parse_args()
 
 
