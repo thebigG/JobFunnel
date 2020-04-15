@@ -88,9 +88,9 @@ def easy_apply(output_file, input_file, status, number_of_times, mode='random'):
     the status you passed.
     Hope it helps you on your job hunting as much as it has helped me :).
     modes:
-        r=random job postings
-        o=oldest job postings
-        n=newest job postings
+        random=random job postings
+        oldest=oldest job postings
+        newest=newest job postings
     """
     print("running jobfunnel_easy_apply:", [
           output_file, input_file, status, number_of_times, mode])
