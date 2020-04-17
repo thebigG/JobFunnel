@@ -23,14 +23,14 @@ All dependencies are listed in `setup.py`, and can be installed automatically wi
 ### Installing JobFunnel
 
 ```
-pip install git+https://github.com/PaulMcInnis/JobFunnel.git
+pip install git+https://github.com/thebigG/JobFunnel.git
 funnel --help
 ```
 
 If you want to develop JobFunnel, you may want to install it in-place:
 
 ```
-git clone git@github.com:PaulMcInnis/JobFunnel.git jobfunnel
+git clone https://github.com/thebigG/JobFunnel.git jobfunnel
 pip install -e ./jobfunnel
 funnel --help
 ```
