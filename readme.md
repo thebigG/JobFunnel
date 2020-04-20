@@ -111,7 +111,7 @@ Filter undesired companies by providing your own `yaml` configuration and adding
 
 The easy_apply extension nicely integrates with JobFunnel to make your job search even easier!
 
-It will open as many browser tabs as you tell it to with randomly or per date(oldest/newest) selected job links. It also marks those same jobs with a custom status of your choosing(the default is "archive")
+It will open as many browser tabs as you tell it to with randomly or per date(oldest/newest) selected job links. It also marks those same jobs with a custom status of your choosing(the default is "archive").
 
 Once you have your scraped "master_list.csv" file, you can start using easy_apply.
 
