@@ -107,7 +107,8 @@ class GlassDoor(JobFunnel):
 
         # get the location id for search location
         location_response = \
-            self.s.post(location_url, headers=self.location_headers, data=data).json()
+            self.s.post(location_url, headers=self.location_headers,
+                        data=data).json()
 
         if method == 'get':
             # @TODO implement get style for glassdoor
