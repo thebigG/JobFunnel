@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
     - uses: actions/checkout@v2
@@ -33,3 +33,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Run CANADA_ENGLISH demo by settings YAML
+      run: |
+        funnel load -s demo/settings.yaml -log-level DEBUG
