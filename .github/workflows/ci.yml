@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: JobFunnel CI
+
+on:
+  push:
+    branches: [ github_actions ]
+  pull_request:
+    branches: [ testing ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-16.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+    - name: Install JobFunnel
+      run: |
+        pip install -e .
+        python -m nltk.downloader stopwords
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    - name: Test with pytest
+      run: |
+        pytest
+    - name: Run a Remote jobs only scrape
+      run: |
+        funnel inline -kw Python -ps ON -c Toronto -l CANADA_ENGLISH -remoteness FULLY_REMOTE -p INDEED -log-level DEBUG -csv demo_job_search_results/demo_remote_search.csv -cache demo_job_search_results/cache3 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log
