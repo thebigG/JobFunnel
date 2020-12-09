@@ -241,7 +241,7 @@ class BaseIndeedScraper(BaseScraper):
                     self._quantize_radius(self.config.search_config.radius),
                     self.max_results_per_page,
                     int(self.config.search_config.return_similar_results),
-                    REMOTENESS_TO_QUERY[self.config.search_config.remoteness],
+                    '',
                 )
             )
         elif method == 'post':
