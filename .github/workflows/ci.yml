@@ -1,5 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# This tests all JobFunnel Scrapes except for the remote-only scrapes.
 
 name: JobFunnel CI
 
@@ -7,7 +6,7 @@ on:
   push:
     branches: [ isolate_remote ]
   pull_request:
-    branches: [ testing ]
+    branches: [ isolate_remote ]
 
 jobs:
   build:
@@ -34,9 +33,22 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Run CANADA_ENGLISH demo by settings YAML
+      run: |
+        funnel load -s demo/settings.yaml -log-level DEBUG
     - name: Run an american search by CLI
       run: |
         funnel inline -kw Python Data Scientist PHD AI -ps WA -c Seattle -l USA_ENGLISH -log-level DEBUG -csv demo_job_search_results/demo_search.csv -cache demo_job_search_results/cache2 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log
-    - name: Run an american search by CLI
+    - name: Run a FRANCE_FRENCH demo by settings YAML
       run: |
-        funnel load -s demo/settings.yaml -log-level DEBUG
+        funnel load -s demo/settings_FR.yaml -log-level DEBUG
+    - name: Obtain coverage
+      run: |
+        pytest --cov=jobfunnel --cov-report=xml
+    - name: After Success
+      run: |
+        bash <(curl -s https://codecov.io/bash)
+
+# TODO: modify some job statuses and run with --no-scrape...
+# - './tests/verify_time.sh'   TODO: some way of verifying execution time
+# - './demo/gen_call_graphs.sh'  TODO: some way of showing .dot on GitHub?

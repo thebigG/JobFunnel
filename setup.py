@@ -24,7 +24,6 @@ requires = [
     'flake8',
     'pipenv',
     'pytest-cov',
-    'pytest-cov',
 ]
 here = Path(__file__).parent
 readme = (here / "readme.md").read_text()
