@@ -38,7 +38,7 @@ jobs:
         funnel load -s demo/settings.yaml -log-level DEBUG
     - name: Run an american search by CLI
       run: |
-        funnel inline -kw Python Data Scientist PHD AI -ps WA -c Seattle -l USA_ENGLISH -log-level DEBUG -csv demo_job_search_results/demo_search.csv -cache demo_job_search_results/cache2 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log
+        funnel inline -kw Python Data Scientist PHD AI -ps WA -c Seattle -l USA_ENGLISH -log-level DEBUG -csv demo_job_search_results/demo_search.csv -cache demo_job_search_results/cache2 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log -max-listing-days 1
     - name: Run a FRANCE_FRENCH demo by settings YAML
       run: |
         funnel load -s demo/settings_FR.yaml -log-level DEBUG

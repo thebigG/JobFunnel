@@ -35,4 +35,4 @@ jobs:
         pytest
     - name: Run a Remote jobs only scrape
       run: |
-        funnel inline -kw Python -ps ON -c Toronto -l CANADA_ENGLISH -remoteness FULLY_REMOTE -p INDEED -log-level DEBUG -csv demo_job_search_results/demo_remote_search.csv -cache demo_job_search_results/cache3 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log
+        funnel inline -kw Python -ps ON -c Toronto -l CANADA_ENGLISH -remoteness FULLY_REMOTE -p INDEED -log-level DEBUG -csv demo_job_search_results/demo_remote_search.csv -cache demo_job_search_results/cache3 -blf demo_job_search_results/demo_block_list.json -dl demo_job_search_results/demo_duplicates_list.json -log-file demo_job_search_results/log.log -max-listing-days 3

@@ -35,7 +35,7 @@ search:
     - Python
 
   # Don't return any listings older than this:
-  max_listing_days: 35
+  max_listing_days: 3
 
   # Blocked company names that will never appear in any results:
   company_block_list:
